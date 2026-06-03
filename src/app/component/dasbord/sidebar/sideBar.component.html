@@ -1,0 +1,94 @@
+<!-- src/app/components/sidebar/sidebar.component.html -->
+<div class="h-screen fixed overflow-y-auto transition-all duration-300"
+     [ngClass]="isOpen ? 'w-1/4 min-w-[160px] max-w-[240px]' : 'w-[60px]'">
+
+  <!-- En-tête -->
+  <div class="flex items-center justify-between mb-3 px-2">
+    <span *ngIf="isOpen" class="text-base font-semibold">Menu</span>
+    <button (click)="toggleMenu()" class="text-lg">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <ul class="space-y-2 text-sm">
+    <li class="flex items-center gap-2 px-2 py-1 rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+      <i class="fas fa-home text-base"></i>
+      <a *ngIf="isOpen" routerLink="/dashboard" class="text-xl">Accueil</a>
+    </li>
+
+    <!-- Catégories -->
+    <li>
+      <button (click)="toggleCategorie()" class="w-full flex items-center gap-2 px-2 py-1 rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+        <i class="fas fa-tags"></i>
+        <span *ngIf="isOpen" class="text-xl">Catégories</span>
+        <i *ngIf="isOpen" class="ml-auto fas" [ngClass]="openCategorie ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+      </button>
+      <ul *ngIf="isOpen && openCategorie" class="ml-4 mt-1 space-y-1">
+        <li>
+          <a routerLink="/dashboard/category" class="block px-3 py-1 text-md rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">➕ Gérer catégorie</a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Livre -->
+    <li>
+      <button (click)="toggleVoiture()" class="w-full flex items-center gap-2 px-2 py-1 rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+        <i class="fas fa-car"></i>
+        <span class="text-xl" *ngIf="isOpen">Voiture</span>
+        <i *ngIf="isOpen" class="ml-auto fas" [ngClass]="openVoiture ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+      </button>
+      <ul *ngIf="isOpen && openVoiture" class="ml-4 mt-1 space-y-1">
+        <li><a routerLink="/dashboard/car" class="block px-3 py-1 text-md rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">🛠️ Gérer voiture</a></li>
+      </ul>
+    </li>
+
+    <!-- Favoris -->
+    <li>
+      <button (click)="toggleClient()" class="w-full flex items-center gap-2 px-2 py-1 rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+        <i class="fas fa-user"></i>
+        <span class="text-xl" *ngIf="isOpen">Client</span>
+        <i *ngIf="isOpen" class="ml-auto fas" [ngClass]="openClient ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+      </button>
+      <ul *ngIf="isOpen && openClient" class="ml-4 mt-1 space-y-1">
+        <li><a routerLink="/dashboard/client" class="block px-3 py-1 text-md rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400"> ➕Gerer client</a></li>
+      </ul>
+    </li>
+
+    <!-- Historique / Facture -->
+<li>
+  <button (click)="toggleFacture()" 
+          class="w-full flex items-center gap-2 px-2 py-1 rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+    <i class="fas fa-file-invoice"></i>
+    <span class="text-xl" *ngIf="isOpen">Effectue facture</span>
+    <i *ngIf="isOpen" class="ml-auto fas" 
+       [ngClass]="openFacture ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+  </button>
+
+  <!-- Les deux sous-liens apparaissent ensemble -->
+  <ul *ngIf="isOpen && openFacture" class="ml-4 mt-1 space-y-1">
+    <li>
+      <a routerLink="/dashboard/Gerefacture" 
+         class="block px-3 py-1 text-md rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+         📁 Contrat location
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/facture" 
+         class="block px-3 py-1 text-md rounded-full hover:bg-gradient-to-r from-indigo-600 via-teal-500 to-green-400">
+         ➕ Gérer la facture
+      </a>
+    </li>
+  </ul>
+</li>
+
+
+  <!-- Déconnexion -->
+  <div class="absolute bottom-4 w-[120px]">
+    <button (click)="logout()"
+    class="w-full flex items-center justify-center bg-red-600 hover:bg-red-700 text-white py-1.5 mx-3 rounded-full shadow">
+      <i class="fas fa-sign-out-alt text-base"></i>
+      <span *ngIf="isOpen">Déconnexion</span>
+    </button>
+  </div>
+

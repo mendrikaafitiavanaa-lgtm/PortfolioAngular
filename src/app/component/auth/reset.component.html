@@ -1,0 +1,59 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-900">
+  <div class="w-[350px] bg-gray-900 text-white p-8 rounded-lg shadow-lg text-center">
+    <i class="fa-solid fa-car text-6xl"></i>
+    <h3 class="mt-2">CarRental</h3>
+    <p>Veuillez entrer vos identifiants</p>
+
+    <form class="mt-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Champ nom -->
+      <div class="flex items-center mb-3 border border-blue-500 rounded">
+        <span class="px-3 py-2 bg-blue-900 rounded-l">
+          <i class="fa-solid fa-user"></i>
+        </span>
+        <input
+          type="text"
+          placeholder="Entrez votre nom"
+          formControlName="nom"
+          class="w-full px-3 py-2 bg-transparent border-0 border-b-2 border-blue-500 focus:outline-none text-white"
+        />
+      </div>
+      <div *ngIf="form.controls['nom'].invalid && form.controls['nom'].touched" class="text-red-400 text-sm mb-2">
+        Nom requis
+      </div>
+
+      <!-- Champ mot de passe -->
+      <div class="flex items-center mb-2 border border-blue-500 rounded">
+        <span class="px-3 py-2 bg-blue-900 rounded-l">
+          <i class="fa-solid fa-lock"></i>
+        </span>
+        <input
+          [type]="hidePassword ? 'password' : 'text'"
+          placeholder="Entrez votre nouveau mot de passe"
+          formControlName="newPassword"
+          class="w-full px-3 py-2 bg-transparent border-0 border-b-2 border-blue-500 focus:outline-none text-white"
+        />
+        <button type="button" (click)="togglePassword()" class="px-3 py-2 rounded-r">
+          <i class="fa-solid" [ngClass]="hidePassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+        </button>
+      </div>
+
+      <!-- Bouton reset -->
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="w-full py-2 border border-blue-500 text-blue-500 hover:bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 hover:text-white rounded-full disabled:opacity-50"
+      >
+        Réinitialiser
+      </button>
+
+      <!-- Bouton retour login -->
+      <button
+        type="button"
+        (click)="goTologin()"
+        class="mt-4 w-full py-2 border border-blue-500 text-blue-500 hover:bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 hover:text-white rounded-full"
+      >
+        Retour login
+      </button>
+    </form>
+  </div>
+</div>

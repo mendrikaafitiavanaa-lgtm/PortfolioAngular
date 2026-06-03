@@ -1,0 +1,22 @@
+<!-- src/app/components/searchbar/searchbar.component.html -->
+<div class="fixed top-20 left-[46%] sm:left-[35%] w-[50%]">
+    <div class="w-full border rounded-xl shadow-2xl px-3 py-2 sm:px-4 sm:py-3"
+         [ngClass]="darkMode ? 'bg-gray-700 border-white/10 text-white' : 'bg-gray-200 border-gray-300 text-black'">
+      <div class="relative w-full">
+        <input type="text"
+       [(ngModel)]="query"
+       (ngModelChange)="onChange()"
+       [placeholder]="'🔍 Rechercher ' + type + ' par nom ...'"
+       class="w-full pr-10 pl-3 py-2 rounded-full text-sm outline-none shadow-inner"
+       [ngClass]="darkMode ? 'bg-gray-600 text-white placeholder-white/50' : 'bg-white text-black placeholder-gray-400'" />
+
+  
+        <button *ngIf="query"
+        (click)="clearSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 p-1  hover:bg-red-300 hover:rotate-6 transition-transform
+         duration-0 ease-in-out rounded-full" title="Effacer la recherche">
+          <i class="fas fa-times" [ngClass]="darkMode ? 'text-white' : 'text-black'"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  

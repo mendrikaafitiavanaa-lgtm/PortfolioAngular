@@ -1,0 +1,149 @@
+<div class="p-6 mt-4" [ngClass]="darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'">
+
+  <!-- Formulaire d'ajout / modification -->
+  <div class="card shadow-2xl max-w-2xl mx-auto mt-6"
+       [ngClass]="darkMode ? 'bg-gray-800 text-white' : 'bg-base-100'">
+    <div class="card-body">
+      <h2 class="card-title text-primary">
+        <i class="fas fa-plus-circle"></i>
+        {{ isEdit ? 'Modifier la catégorie' : 'Ajouter une catégorie' }}
+      </h2>
+
+      <form (ngSubmit)="submit()" class="space-y-4">
+        <div class="relative">
+          <input type="text"
+                 [(ngModel)]="categoryName"
+                 name="nom"
+                 placeholder="Entrez le nom"
+                 class="w-full pr-10 pl-3 py-2 rounded-full border mt-2 text-sm outline-none shadow-inner"
+                 [ngClass]="darkMode ? 'bg-gray-700 text-white border-blue-400 placeholder-gray-400'
+                                     : 'bg-white text-black border-blue-500 placeholder-gray-500'" />
+
+          <!-- Bouton annuler modification -->
+          <button *ngIf="isEdit"
+                  type="button"
+                  (click)="resetForm()"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-red-100 transition-colors"
+                  title="Annuler la modification">
+            <i class="fas fa-times text-red-600"></i>
+          </button>
+        </div>
+
+        <button type="submit" class="w-full btn bg-blue-700 py-3 rounded-full">
+          <i class="fas" [ngClass]="isEdit ? 'fa-check' : 'fa-plus'"></i>
+          {{ isEdit ? 'Modifier' : 'Ajouter' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Tableau des catégories -->
+  <div class="card shadow-2xl mt-8"
+       [ngClass]="darkMode ? 'bg-gray-800 text-white' : 'bg-base-100'">
+    <div class="card-body">
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <thead>
+            <tr [ngClass]="darkMode ? 'text-white' : 'text-black'">
+              <th class="text-center">ID</th>
+              <th class="text-center">Nom</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Loader -->
+            <tr *ngIf="loading">
+              <td colspan="3" class="text-center p-4">
+                <i class="fas fa-spinner fa-spin"></i> Chargement...
+              </td>
+            </tr>
+
+            <!-- Résultats -->
+            <tr *ngFor="let cat of categories; let i = index"
+                [ngClass]="darkMode 
+                  ? (i % 2 === 0 ? 'bg-gray-800 text-white' : 'bg-gray-700 text-white') 
+                  : (i % 2 === 0 ? 'bg-white text-black' : 'bg-gray-100 text-black')">
+              <td class="text-center">{{ cat.id }}</td>
+              <td class="text-center">{{ cat.nom }}</td>
+              <td class="flex justify-center gap-2">
+                <button (click)="showDetails(cat)" class="p-2 rounded-full hover:bg-blue-100">
+                  <i class="fas fa-eye text-blue-600"></i>
+                </button>
+                <button (click)="edit(cat)" class="p-2 rounded-full hover:bg-green-100">
+                  <i class="fas fa-pencil-alt text-green-600"></i>
+                </button>
+                <button (click)="delete(cat)" class="p-2 rounded-full hover:bg-red-100">
+                  <i class="fas fa-trash text-red-600"></i>
+                </button>
+              </td>
+            </tr>
+
+            <!-- Aucun résultat -->
+            <tr *ngIf="!loading && categories.length === 0">
+              <td colspan="3" class="text-center italic p-4">
+                {{ query ? 'Aucun résultat pour "' + query + '"' : 'Aucune catégorie trouvée' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+          <!-- Pagination -->
+          <div class="flex justify-center items-center gap-4 mt-6">
+            <!-- Bouton précédent -->
+            <button (click)="changePage(page - 1)" [disabled]="page === 1"
+                    class="px-3 py-2 rounded-md flex items-center gap-2"
+                    [ngClass]="darkMode ? 'bg-gray-700 text-white hover:bg-gray-500 disabled:opacity-50'
+                                        : 'bg-gray-200 hover:bg-gray-300 disabled:opacity-50'">
+              <i class="fas fa-arrow-left"></i>
+              <span>Précédent</span>
+            </button>
+    
+            <!-- Numéros de pages -->
+            <div class="flex gap-2">
+              <button *ngFor="let p of pages" (click)="changePage(p)"
+                      class="w-10 h-10 flex items-center justify-center rounded-md border transition-colors duration-200"
+                      [ngClass]="p === page 
+                        ? 'bg-blue-600 text-white border-blue-600' 
+                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'">
+                {{ p }}
+              </button>
+            </div>
+    
+            <!-- Bouton suivant -->
+            <button (click)="changePage(page + 1)" [disabled]="page === totalPages"
+                    class="px-3 py-2 rounded-md flex items-center gap-2"
+                    [ngClass]="darkMode ? 'bg-gray-700 text-white hover:bg-gray-500 disabled:opacity-50'
+                                        : 'bg-gray-200 hover:bg-gray-300 disabled:opacity-50'">
+              <span>Suivant</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Modal détails -->
+      <div *ngIf="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="modal-box border shadow-lg p-6 rounded-lg"
+             [ngClass]="darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg text-primary">
+              <i class="fas fa-info-circle"></i> Détails de la catégorie
+            </h3>
+            <button (click)="showModal=false" class="rounded-full p-2 hover:bg-red-100">
+              <i class="fas fa-times text-red-600"></i>
+            </button>
+          </div>
+          <div class="space-y-2">
+            <p><span class="font-semibold">ID :</span> {{ selectedCategory?.id }}</p>
+            <p><span class="font-semibold">Nom :</span> {{ selectedCategory?.nom }}</p>
+          </div>
+          <div class="modal-action mt-4">
+            <button class="btn btn-neutral" (click)="showModal=false">
+              <i class="fas fa-times"></i> Fermer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
