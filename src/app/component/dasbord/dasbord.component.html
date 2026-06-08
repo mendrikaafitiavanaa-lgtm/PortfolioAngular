@@ -1,0 +1,22 @@
+<div [ngClass]="darkMode ? 'bg-black text-white min-h-screen' : 'bg-white text-black min-h-screen'">
+
+  <!-- Topbar fixe -->
+  <app-topbar class="fixed top-0 left-0 w-full z-50"></app-topbar>
+  <app-scroll-icons [darkMode]="darkMode"></app-scroll-icons>
+  <!-- Sections -->
+  <section id="accueil" class="m-0 p-0">
+    <app-accueil></app-accueil>
+  </section>
+  
+  <section id="competence" class="m-0 p-0">
+    <app-competence></app-competence>
+  </section>
+  
+  <section id="projet" class="m-0 p-0">
+    <app-projet></app-projet>
+  </section>
+  
+  <section id="contact" class="m-0 p-0">
+    <app-contact></app-contact>
+  </section>
+  

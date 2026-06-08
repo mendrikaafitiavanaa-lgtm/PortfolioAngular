@@ -1,0 +1,64 @@
+<div [ngClass]="darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'"
+     class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 py-12">
+
+  <!-- Formulaire à gauche -->
+  <div    data-aos="slide-up" data-aos-duration="2500" class="md:w-1/2 space-y-6">
+    <h2 class="text-2xl font-bold mb-4">Envoyer un message</h2>
+    <form (ngSubmit)="sendEmail()" class="space-y-4">
+      <input type="text" name="name" [(ngModel)]="formData.name" placeholder=" entrez votre nom"
+             class="w-full pr-10 pl-3 py-2 rounded-full border  mt-2 text-sm outline-none shadow-inner   placeholder-blue-700 border-blue-400"
+             [ngClass]="darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'" />
+
+      <input type="email" name="email" [(ngModel)]="formData.email" placeholder="entrez votre email"
+             class="w-full pr-10 pl-3 py-2 rounded-full border mt-2 text-sm outline-none shadow-inner  placeholder-blue-700 border-blue-400"
+             [ngClass]="darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'" />
+
+      <input type="text" name="title" [(ngModel)]="formData.title" placeholder="Sujet"
+             class="w-full pr-10 pl-3 py-2 rounded-full border mt-2 text-sm outline-none shadow-inner  placeholder-blue-700 border-blue-400"
+             [ngClass]="darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'" />
+
+      <textarea name="message" [(ngModel)]="formData.message" placeholder="entrez votre message"
+                class="w-full pr-10 pl-3 py-2 rounded-lg border mt-2 text-sm outline-none shadow-inner h-32  placeholder-blue-700 border-blue-400"
+                [ngClass]="darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'"></textarea>
+
+      <button type="submit"
+              class="mt-4 w-full py-2 border border-blue-500 text-blue-500 hover:bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 hover:text-white rounded-full">
+        <i class="fas fa-paper-plane mr-2"></i> Envoyer
+      </button>
+    </form>
+  </div>
+
+<!-- Coordonnées centrées -->
+<div data-aos="slide-up" data-aos-duration="1500" class="md:w-1/2 mt-8 md:mt-0 space-y-6 text-center">
+  <h2 class=" text-base md:text-3xl font-extrabold mb-6"> Mes coordonnées</h2>
+  
+  <p class="text-base md:text-xl flex justify-center items-center">
+    <i class="fas fa-phone-alt text-blue-600 mr-3"></i> 
+    <a href="tel:+2613322510" class="hover:underline">
+      +261 033 225 10
+    </a>
+  </p>
+  
+  
+  <p class="  text-base md:text-xl flex justify-center items-center">
+    <i class="fas fa-envelope text-blue-600 mr-3"></i> 
+    <span>mendrikaafitiavanaa&#64;gmail.com</span>
+  </p>
+  
+  <p class=" text-base md:text-xl flex justify-center items-center">
+    <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i> 
+    <span>Antananarivo (Nanisana)</span>
+  </p>
+  
+  <p class=" text-base md:text-xl flex justify-center items-center">
+    <i class="fab fa-facebook text-blue-600 mr-3"></i> 
+    <a href="https://www.facebook.com/mendrika.hrna" target="_blank" class="hover:underline">
+      iz una sosuke
+    </a>
+  </p>
+  
+ 
+</div>
+
+
+</div>

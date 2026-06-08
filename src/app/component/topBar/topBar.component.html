@@ -1,0 +1,57 @@
+<div  
+  [ngClass]="darkMode 
+    ? 'flex items-center justify-between px-6 py-3 shadow-md bg-black text-white' 
+    : 'flex items-center justify-between px-6 py-3 shadow-md bg-white text-black'">
+
+  <!-- Logo -->
+  <div class="flex items-center gap-2">
+    <img src="assets/logo.png" alt="Logo Mendrika" class="h-16 w-16 rounded-full shadow-md" />
+  </div>
+
+  <!-- Bouton menu mobile -->
+  <button class="md:hidden text-2xl" (click)="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Liens navigation -->
+  <ul 
+    [ngClass]="isMenuOpen 
+      ? (darkMode 
+          ? 'flex flex-col items-center justify-center absolute top-14 left-0 w-full bg-black text-white md:flex md:flex-row md:static md:w-auto' 
+          : 'flex flex-col  items-center justify-center absolute top-14 left-0 w-full bg-white text-black md:flex md:flex-row md:static md:w-auto') 
+      : 'hidden md:flex md:flex-row md:gap-10 ml-auto'">
+
+    <li>
+      <a href="#accueil" class="relative text-lg font-semibold group">
+        Accueil
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </li>
+
+    <li>
+      <a href="#competence" class="relative text-lg font-semibold group">
+        Compétences
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </li>
+    <li>
+      <a href="#projet" class="relative text-lg font-semibold group">
+        Projet
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </li>
+    <li>
+      <a href="#contact" class="relative text-lg font-semibold group">
+        Contact
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-600 dark:bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Dark mode toggle (visible partout) -->
+  <div class="flex items-center gap-4 ml-6">
+    <button (click)="onToggle()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+      <i [ngClass]="darkMode ? 'fas fa-sun text-yellow-400' : 'fas fa-moon text-black dark:text-white'"></i>
+    </button>
+  </div>
+</div>

@@ -19,17 +19,24 @@
                         "polyfills": [
                             "zone.js"
                         ],
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
                         "tsConfig": "tsconfig.app.json",
-                        "assets": [{
-                            "glob": "**/*",
-                            "input": "public"
-                        }],
                         "styles": [
                             "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+                            "node_modules/aos/dist/aos.css",
                             "src/styles.css"
                         ],
+                        "scripts": [
+                            "node_modules/aos/dist/aos.js"
+                        ],
 
-                        "scripts": []
+                        "allowedCommonJsDependencies": [
+                            "aos",
+                            "sweetalert2"
+                        ]
                     },
                     "configurations": {
                         "production": {

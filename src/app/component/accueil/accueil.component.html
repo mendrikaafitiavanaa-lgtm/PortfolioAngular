@@ -1,0 +1,40 @@
+<app-loading [loading]="loading" [darkMode]="darkMode"></app-loading>
+
+<div *ngIf="!loading">
+  <div 
+    [ngClass]="darkMode 
+      ? 'min-h-screen flex flex-col md:flex-row items-center justify-between px-4 py-8 bg-black text-white' 
+      : 'min-h-screen flex flex-col md:flex-row items-center justify-between px-4 py-8 bg-white text-black'">
+
+    <!-- Texte -->
+    <div  data-aos="slide-right" data-aos-duration="1500" class="md:w-1/2 text-center md:text-left space-y-4 mt-16 sm:mt-20 md:mt-0">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">
+        Bonjour, je suis <span class="text-blue-600">Herinirina Mendrika Fitiavana</span>
+      </h1>
+      <p class="text-xs sm:text-xl md:text-2xl font-bold">
+        Étudiant en Master 1 à  l ' universite de CNTEMAD ,
+        passionné par la programmation en  java.
+      </p>
+
+      <!-- Boutons -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+        <a href="assets/cv.pdf" download 
+           class="px-4 sm:px-6 py-2 sm:py-3 border border-blue-500 text-blue-500 hover:bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 hover:text-white rounded-full text-sm sm:text-base">
+          Télécharger CV
+        </a>
+        <a href="#contact" 
+           class="px-4 sm:px-6 py-2 sm:py-3 border border-blue-500 text-blue-500 hover:bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 hover:text-white rounded-full text-sm sm:text-base">
+          Mes contacts
+        </a>
+      </div>
+    </div>
+
+    <!-- Image avec Angular events -->
+    <div   data-aos="slide-left" data-aos-duration="1500"class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+      <img [src]="currentImage" alt="Photo Mendrika"
+           class="w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full shadow-lg object-cover"
+           (mouseenter)="onMouseEnter()" 
+           (mouseleave)="onMouseLeave()" />
+    </div>
+  </div>
+</div>
