@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset global pour supprimer toutes les marges indésirables */
+/* ✅ Reset général */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+/* ✅ Supprimer marges/paddings par défaut des composants Angular */
 
 app-accueil,
 app-topbar,
@@ -16,17 +26,35 @@ app-contact {
 }
 
 
-/* Supprime les marges du body si nécessaires */
+/* ✅ Sections principales : pas de marge externe */
 
-body {
-    margin: 0;
-    padding: 0;
+section {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 
-/* Pour le conteneur principal */
+/* ✅ Corriger l’espace sous la topbar fixe */
 
-.min-h-screen:first-child {
+section#accueil {
     margin-top: 0 !important;
     padding-top: 0 !important;
+}
+
+
+/* ✅ Ajustement responsive pour compenser la topbar sur mobile */
+
+@media (max-width: 768px) {
+    section#accueil {
+        margin-top: -3rem !important;
+        /* ajuste selon la hauteur de ta topbar */
+    }
+}
+
+
+/* ✅ Supprimer marges parasites des containers min-h-screen */
+
+.min-h-screen {
+    margin: 0 !important;
+    padding: 0 !important;
 }
