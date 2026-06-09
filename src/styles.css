@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Reset global pour supprimer toutes les marges indésirables */
+
+app-accueil,
+app-topbar,
+app-scroll-icons,
+app-competence,
+app-projet,
+app-contact {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* Supprime les marges du body si nécessaires */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Pour le conteneur principal */
+
+.min-h-screen:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
