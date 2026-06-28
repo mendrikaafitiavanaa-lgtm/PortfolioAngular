@@ -1,13 +1,11 @@
 <div [ngClass]="darkMode ? 'bg-black text-white min-h-screen' : 'bg-white text-black min-h-screen'">
 
-  <!-- Topbar fixe -->
   <app-topbar></app-topbar>
   
-  <!-- Contenu avec padding-top -->
   <div style="padding-top: 80px; width: 100%;">
     <app-scroll-icons [darkMode]="darkMode"></app-scroll-icons>
     
-    <section id="accueil" class="pt-20" style="padding-top: 30px; margin-top: -30px;h-auto md:min-h-screen;">
+    <section id="accueil" class="h-auto md:min-h-screen" style="padding-top: 30px; margin-top: -30px;">
       <app-accueil></app-accueil>
     </section>
     
