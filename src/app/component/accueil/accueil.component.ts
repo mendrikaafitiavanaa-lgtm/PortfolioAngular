@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -8,12 +8,13 @@ import { LoadingComponent } from '../reutilisable/loading.component';
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, FormsModule, LoadingComponent], // ✅ pas de double virgule
-  templateUrl: './accueil.component.html'
+  imports: [CommonModule, FormsModule, LoadingComponent],
+  templateUrl: './accueil.component.html',
+  encapsulation: ViewEncapsulation.None // Important pour éviter les conflits
 })
 export class AccueilComponent {
   darkMode = false;
-  loading = true; // au départ, on affiche le spinner
+  loading = true;
   currentImage = 'assets/photo1.jpg';
 
   constructor(private store: Store<{ theme: ThemeState }>) {
@@ -21,9 +22,8 @@ export class AccueilComponent {
       this.darkMode = state.darkMode;
     });
 
-    // Simule un chargement de 2 secondes
     setTimeout(() => {
-      this.loading = false; // après 2s, on cache le spinner et on affiche le contenu
+      this.loading = false;
     }, 1000);
   }
 

@@ -2,16 +2,18 @@
 
 <div *ngIf="!loading">
   <div 
-    [ngClass]="darkMode 
-      ? 'min-h-screen flex flex-col md:flex-row items-center justify-between bg-black text-white' 
-      : 'min-h-screen flex flex-col md:flex-row items-center justify-between bg-white text-black'"
-    class="m-0 p-0 ">
+  [ngClass]="darkMode 
+    ? 'min-h-screen flex flex-col md:flex-row items-center justify-between bg-black text-white' 
+    : 'min-h-screen flex flex-col md:flex-row items-center justify-between bg-white text-black'"
+  class="w-full max-w-full overflow-hidden">
+
 
     <!-- Texte -->
     <div data-aos="slide-right" data-aos-duration="1500"
-         class="md:w-1/2 text-center md:text-left space-y-4 px-4 py-8 md:py-0">
-      <!-- CORRECTION 1: Texte bien visible sur mobile -->
-      <h1 class=" mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+        class="md:w-1/2 text-center md:text-left space-y-4 px-4 pt-8 pb-2 md:py-0"
+        style="max-width: 100%;">
+      
+      <h1 class="mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
         Bonjour, je suis <br class="block sm:hidden" />
         <span class="text-blue-600 block sm:inline">Herinirina Mendrika Fitiavana</span>
       </h1>
@@ -33,15 +35,16 @@
       </div>
     </div>
 
-    <!-- CORRECTION 2: Image parfaite sur desktop ET mobile -->
+    <!-- Image -->
     <div data-aos="slide-left" data-aos-duration="1500"
-         class="  md:w-1/2 flex justify-center px-4 py-6 md:py-0">
-     <!-- Version avec image plus grande comme avant -->
-<img [src]="currentImage" alt="Photo Mendrika"
-     class="w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full object-cover shadow-lg border-4 border-blue-500"
-     style="border-radius: 50% !important; object-fit: cover;"
-     (mouseenter)="onMouseEnter()" 
-     (mouseleave)="onMouseLeave()" />
+    class="md:w-1/2 flex justify-center px-4 pt-2 pb-4 md:py-0"
+    style="max-width: 100%;">
+     
+      <img [src]="currentImage" alt="Photo Mendrika"
+           class="w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full object-cover shadow-lg border-4 border-blue-500"
+           style="border-radius: 50% !important; object-fit: cover; max-width: 100%;"
+           (mouseenter)="onMouseEnter()" 
+           (mouseleave)="onMouseLeave()" />
     </div>
   </div>
 </div>
