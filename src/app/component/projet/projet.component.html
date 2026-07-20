@@ -1,74 +1,73 @@
-<h2 class="text-2xl pl-8 font-bold mb-4">Lister de mes projets :</h2>
-<div    data-aos="slide-right" data-aos-duration="1500" class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
-  
-<!-- Carte 1 : Application web -->
-    <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
-                             : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
-         class="rounded-xl p-6 font-bold transition transform hover:scale-105">
-      <h2 class="text-lg"> Application web — Traduction texte
-      </h2>
-      <p class="mt-2 text-base font-normal">
-         Projet personnel  qui utilise clé api Grok. Application web permettant de traduire une texte francais en anglais ou l i'inverse et permet ocrrige faute d'orthographe .
-      </p>
-      <img src="assets/projet4.png" alt="Application Desktop"
-           class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Angular js</span>
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Flask</span>
-      </div>
-    </div>
+<h2 class="text-2xl pl-8 font-bold mb-4">Liste de mes projets :</h2>
+<div data-aos="slide-right" data-aos-duration="1500" class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
 
-    <!-- Carte 1 : Application Desktop -->
-    <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
-                             : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
-         class="rounded-xl p-6 font-bold transition transform hover:scale-105">
-      <h2 class="text-lg"> Application Desktop — Gestion École</h2>
-      <p class="mt-2 text-base font-normal">
-        Projet en équipe avec CENTIC-MADA (en cours) . Application desktop permettant de générer les bulletins des élèves et de gérer leur présence.
-      </p>
-      <img src="assets/projet1.png" alt="Application Desktop"
-           class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">MySQL</span>
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Java Swing</span>
-      </div>
-    </div>
-  
-    <!-- Carte 2 : Application Web Location Voiture -->
-    <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
-                             : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
-         class="rounded-xl p-6 font-bold transition transform hover:scale-105">
-      <h2 class="text-lg"> Application Web — Location de Voiture</h2>
-      <p class="mt-2 text-base font-normal">
-        Projet personnel. Application web permettant de louer une voiture pour une durée donnée et de recevoir une facture selon le temps de location.
-      </p>
-      <img src="assets/projet2.png" alt="Application Location Voiture"
-           class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">ASP.NET</span>
-        <span class="bg-blue-500 text-white px-1 md:px-3 py-1 rounded-full text-sm text-center">PostgreSQL</span>
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Angular</span>
-        <span class="bg-blue-500 text-white px-1 md:px-3 py-1 rounded-full text-sm text-center">TailwindCSS</span>
-      </div>
-    </div>
-  
-    <!-- Carte 3 : Application Web Gestion École -->
-    <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
-                             : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
-         class="rounded-xl p-6 font-bold transition transform hover:scale-105">
-      <h2 class="text-lg"> Application Web — Gestion École</h2>
-      <p class="mt-2 text-base font-normal">
-        Projet personnel (en cours). Application web permettant de générer les bulletins des élèves et de gérer leur présence.
-      </p>
-      <img src="assets/projet3.png" alt="Application Web Gestion École"
-           class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Spring Boot</span>
-        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Angular</span>
-        <span class="bg-blue-500 text-white px-1 md:px-3 py-1 rounded-full text-sm text-center">TailwindCSS</span>
-        <span class="bg-blue-500 text-white px-1  md:px-3 py-1 rounded-full text-sm text-center">PostgreSQL</span>
-      </div>
+  <!-- Carte 1 : Application web -->
+  <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
+                           : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
+       class="rounded-xl p-6 font-bold transition transform hover:scale-105">
+    <h2 class="text-lg">Application web — Traduction de texte</h2>
+    <p class="mt-2 text-base font-normal">
+      Projet personnel qui utilise une clé API Groq. Application web permettant de traduire un texte français en anglais ou l'inverse et permettant de corriger les fautes d'orthographe.
+    </p>
+    <img src="assets/projet4.png" alt="Application Desktop"
+         class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Angular js</span>
+      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Flask</span>
     </div>
   </div>
-  
-  
+
+  <!-- Carte 1 : Application Desktop -->
+  <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
+                           : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
+       class="rounded-xl p-6 font-bold transition transform hover:scale-105">
+    <h2 class="text-lg">Application Desktop — Gestion d'École</h2>
+    <p class="mt-2 text-base font-normal">
+      Projet en équipe avec CENTIC-MADA (en cours). Application desktop permettant de générer les bulletins des élèves et de gérer leur présence.
+    </p>
+    <img src="assets/projet1.png" alt="Application Desktop"
+         class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">MySQL</span>
+      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Java Swing</span>
+    </div>
+  </div>
+
+  <!-- Carte 2 : Application Web Location Voiture -->
+  <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
+                           : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
+       class="rounded-xl p-6 font-bold transition transform hover:scale-105">
+    <h2 class="text-lg">Application Web — Location de voiture</h2>
+    <p class="mt-2 text-base font-normal">
+      Projet personnel. Application web permettant de louer une voiture pour une durée donnée et de recevoir une facture selon la durée de location.
+    </p>
+    <img src="assets/projet2.png" alt="Application Location Voiture"
+         class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">ASP.NET</span>
+      <span class="bg-blue-500 text-white px-1 md:px-3 py-1 rounded-full text-sm text-center">PostgreSQL</span><br>
+      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Angular</span>
+      <span class="bg-blue-500 text-white px-1 md:px-3 py-1 rounded-full text-sm text-center">TailwindCSS</span>
+    </div>
+  </div>
+
+  <!-- Carte 3 : Application Web Gestion École -->
+  <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
+                           : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
+       class="rounded-xl p-6 font-bold transition transform hover:scale-105">
+    <h2 class="text-lg">Application Web — Gestion d'École</h2>
+    <p class="mt-2 text-base font-normal">
+      Projet personnel (en cours). Application web permettant de générer les bulletins des élèves et de gérer leur présence.
+    </p>
+    <img src="assets/projet3.png" alt="Application Web Gestion École"
+         class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+  <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center w-full">Spring Boot</span>
+  <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center w-full">Angular</span>
+  <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center w-full">TailwindCSS</span>
+  <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center w-full">PostgreSQL</span>
+</div>
+
+  </div>
+
+</div>
