@@ -1,6 +1,23 @@
 <h2 class="text-2xl pl-8 font-bold mb-4">Lister de mes projets :</h2>
-<div    data-aos="slide-right" data-aos-duration="1500" class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+<div    data-aos="slide-right" data-aos-duration="1500" class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
   
+<!-- Carte 1 : Application web -->
+    <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
+                             : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
+         class="rounded-xl p-6 font-bold transition transform hover:scale-105">
+      <h2 class="text-lg"> Application web — Traduction texte
+      </h2>
+      <p class="mt-2 text-base font-normal">
+         Projet personnel  qui utilise clé api Grok. Application web permettant de traduire une texte francais en anglais ou l i'inverse et permet ocrrige faute d'orthographe .
+      </p>
+      <img src="assets/projet4.png" alt="Application Desktop"
+           class="rounded-lg mt-4 shadow-md w-full md:w-3/4 mx-auto object-cover">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Angular js</span>
+        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm text-center">Flask</span>
+      </div>
+    </div>
+
     <!-- Carte 1 : Application Desktop -->
     <div [ngClass]="darkMode ? 'bg-gray-800 text-white shadow-gray-900 border-l-4 border-blue-500' 
                              : 'bg-white text-black shadow-md border-l-4 border-blue-500'"
@@ -53,4 +70,5 @@
       </div>
     </div>
   </div>
+  
   
